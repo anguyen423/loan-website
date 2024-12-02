@@ -1,294 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto Loan Website</title>
-  <style>
-    /* General Styling */
-    body {
-     background-image: url("../loan-website/images/cars.jpg");  /* Replace with actual image */
-      background-size: contain;
-      background-position: center;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      z-index: -1;
-    }
-    h1, h2, h3 {
-      color: #333;
-    }
-    p {
-      color: #555;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    display: flex;
+    background-image: url('../an/images/bkgrd1.jpg');
+}
 
-    /* Sticky Header */
-    header {
-      background-color: #0047ab;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    nav a {
-      margin: 0 15px;
-      color: white;
-    }
-    .apply-now {
-      background-color: orange;
-      color: white;
-      border-radius: 5px;
-    }
+.sidebar {
+    background-color: #33333392;
+    color: #fff;
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    
+}
 
-    /* Hero Section */
-    .hero {
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero h1 {
-      font-size: 48px;
-    }
-    .hero p {
-      font-size: 18px;
-    }
-    .hero .button-primary {
-      background-color: orange;
-      color: white;
-      border-radius: 5px;
-      margin: 10px;
-    }
-    .hero .button-secondary {
-      background-color: green;
-      color: white;
-      border-radius: 5px;
-    }
+.sidebar .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
-    /* Benefits Section */
-    .benefits {
-      text-align: center;
-    }
-    .benefits h2 {
-      margin-bottom: 20px;
-    }
-    .benefits .benefit-item {
-      display: inline-block;
-      width: 22%;
-      margin: 10px;
-    }
-    .benefits .benefit-item img {
-      width: 50px;
-    }
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
 
-    /* Loan Calculator */
-    .loan-calculator {
-      background-color: #f9f9f9;
-      text-align: center;
-    }
-    .loan-calculator h2 {
-      margin-bottom: 20px;
-    }
-    .loan-calculator input {
-      margin: 5px;
-      padding: 10px;
-      width: 200px;
-    }
+.sidebar nav ul li {
+    margin: 10px 0;
+    text-align: center;
+}
 
-    /* Featured Loan Plans */
-    .loan-plans {
-      text-align: center;
-    }
-    .loan-plans .loan-plan-item {
-      display: inline-block;
-      width: 30%;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin: 10px;
-    }
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
-    /* Testimonials */
-    .testimonials {
-      background-color: #f1f1f1;
-    }
-    .testimonial-item {
-      display: inline-block;
-      width: 30%;
-      text-align: center;
-      padding: 20px;
-    }
+.sidebar nav ul li a:hover {
+    background-color: #575757;
+}
 
-    /* FAQ Section */
-    .faq {
-      text-align: center;
-    }
-    .faq .faq-item {
-      margin-bottom: 20px;
-    }
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+}
 
-    /* Call to Action Banner */
-    .cta-banner {
-      background-color: #0047ab;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .cta-banner button {
-      background-color: orange;
-      border-radius: 5px;
-    }
+.hero {
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    color: #e08d8d;
+    text-align: center;
+    padding: 0 30px;
+}
 
-    /* Footer */
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    footer a {
-      color: white;
-      margin: 0 10px;
-    }
-    footer p {
-      margin: 5px;
-    }
-  </style>
-</head>
-<body>
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
 
-  <!-- Header Section -->
-  <header>
-    <div class="logo">Auto Loans</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Loan Options</a>
-      <a href="#">Rates</a>
-      <a href="#">FAQ</a>
-      <a href="#">Contact</a>
-    </nav>
-    <button class="apply-now">Apply Now</button>
-  </header>
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Drive Your Dream Car with Flexible Auto Loans</h1>
-    <p>Competitive rates and fast approval times</p>
-    <button class="button-primary">Get Pre-approved</button>
-    <button class="button-secondary">Check Rates</button>
-  </section>
+.hero .btn {
+    background-color: #ffbb33;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
 
-  <!-- Benefits Section -->
-  <section class="benefits">
-    <h2>Why Choose Us for Your Auto Loan?</h2>
-    <div class="benefit-item">
-      <img src="low-rates-icon.png" alt="Low Interest Rates">
-      <p>Low Interest Rates</p>
-    </div>
-    <div class="benefit-item">
-      <img src="flexible-payment-icon.png" alt="Flexible Payment">
-      <p>Flexible Payment Options</p>
-    </div>
-    <div class="benefit-item">
-      <img src="quick-approval-icon.png" alt="Quick Approval">
-      <p>Quick Approval Process</p>
-    </div>
-    <div class="benefit-item">
-      <img src="no-hidden-fees-icon.png" alt="No Hidden Fees">
-      <p>No Hidden Fees</p>
-    </div>
-  </section>
+.hero .btn:hover {
+    background-color: #333;
+}
 
-  <!-- Loan Calculator Section -->
-  <section class="loan-calculator">
-    <h2>Estimate Your Monthly Payment</h2>
-    <input type="text" placeholder="Vehicle Price">
-    <input type="text" placeholder="Loan Term (years)">
-    <input type="text" placeholder="Interest Rate (%)">
-    <button>Calculate</button>
-  </section>
+section {
+    padding: 60px 0;
+}
 
-  <!-- Featured Loan Plans Section -->
-  <section class="loan-plans">
-    <h2>Our Loan Plans</h2>
-    <div class="loan-plan-item">
-      <h3>New Car Loans</h3>
-      <p>Low rates for new cars</p>
-    </div>
-    <div class="loan-plan-item">
-      <h3>Used Car Loans</h3>
-      <p>Great rates for pre-owned vehicles</p>
-    </div>
-    <div class="loan-plan-item">
-      <h3>Refinancing Options</h3>
-      <p>Refinance your current auto loan</p>
-    </div>
-  </section>
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
 
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>What Our Customers Are Saying</h2>
-    <div class="testimonial-item">
-      <p>"Great service and fast approval!" - John D.</p>
-    </div>
-    <div class="testimonial-item">
-      <p>"I got the best rate!" - Sarah M.</p>
-    </div>
-    <div class="testimonial-item">
-      <p>"Super easy process!" - Chris W.</p>
-    </div>
-  </section>
+.about p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-  <!-- FAQ Section -->
-  <section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <h3>How long does it take to get approved?</h3>
-      <p>Most loans are approved within 24 hours.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What documents do I need?</h3>
-      <p>You'll need proof of income and identity.</p>
-    </div>
-  </section>
+.services .service-items {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
 
-  <!-- Call to Action Banner -->
-  <section class="cta-banner">
-    <h2>Ready to Get Started?</h2>
-    <p>Apply in just a few minutes and get pre-approved today!</p>
-    <button>Start Your Application</button>
-  </section>
+.services .service-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
 
-  <!-- Footer Section -->
-  <footer>
-    <p>Quick Links: <a href="#">Loan Options</a> | <a href="#">Resources</a> | <a href="#">About Us</a> | <a href="#">Contact</a></p>
-    <p>Follow us on: <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
-    <p>Contact: (555) 123-4567 | email@example.com | 1234 Auto Loan Ave.</p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
-  </footer>
+.services .service-item:hover {
+    transform: translateY(-5px);
+}
 
-</body>
-</html>
+.portfolio .portfolio-items {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.portfolio .portfolio-item {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.portfolio .portfolio-item img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.portfolio .portfolio-item img:hover {
+    transform: scale(2.05);
+}
+
+.portfolio .portfolio-item h3 {
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact .btn {
+    display: block;
+    background-color: #ef7f7f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 20px auto 0;
+    max-width: 200px;
+    transition: background-color 0.3s;
+}
+
+.contact .btn:hover {
+    background-color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.container1 {
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 30%;
+    align-items: center;
+    color: #e08d8d;
+    text-align: center;
+    padding: 0 00px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container1 h2 {
+    font-size: 3rem;
+    margin-top: 20%;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container1 p {
+    font-size: 1.25rem;
+    margin-bottom: 15%;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container1 .btn {
+    background-color: #ef7f7f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.container1 .btn:hover {
+    background-color: #333;
+}
